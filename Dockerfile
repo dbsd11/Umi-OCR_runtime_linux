@@ -2,7 +2,7 @@
 # https://github.com/hiroi-sora/Umi-OCR
 # https://github.com/hiroi-sora/Umi-OCR_runtime_linux
 
-FROM debian:11-slim
+FROM debian:12.10-slim
 
 LABEL app="Umi-OCR-Paddle"
 LABEL maintainer="hiroi-sora"
@@ -66,7 +66,7 @@ ENV RESOLUTION_HEIGHT=1080
 RUN mkdir -p /var/log/supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
 
-EXPOSE 1224 5901
+EXPOSE 1224 6080
 
 # 运行指令
 CMD ["/usr/bin/supervisord", "-c", "/etc/supervisor/conf.d/supervisord.conf"]
