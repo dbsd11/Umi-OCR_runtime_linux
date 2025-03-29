@@ -37,7 +37,7 @@ services:
           image: "registry.cn-beijing.aliyuncs.com/dbsnolimit/umi-ocr:latest"
         customHealthCheckConfig:
           failureThreshold: 6
-          httpGetUrl: /
+          httpGetUrl: /index.html
           periodSeconds: 5
           timeoutSeconds: 3
           successThreshold: 1
