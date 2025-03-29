@@ -17,6 +17,9 @@ class CustomHandler(SimpleHTTPRequestHandler):
             if self.path.startswith(path_prefix):
                 self.proxy_request(path_prefix, target_url)
                 return
+        # 处理根路径重定向到 index.html
+        if self.path in ('/', ''):
+            self.path = '/index.html'
         super().do_GET()
 
     def do_POST(self):
