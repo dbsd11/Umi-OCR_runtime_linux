@@ -25,6 +25,7 @@ services:
         name: "ocr"
         description: 'ocr api server'
         vpcConfig: auto
+        logConfig: auto
       function:
         name: "ocr-api"
         description: 'ocr api'
@@ -35,6 +36,8 @@ services:
         caPort: 8080
         customContainerConfig: 
           image: "registry.cn-beijing.aliyuncs.com/dbsnolimit/umi-ocr:latest"
+        environmentVariables:
+          HEADLESS: true
         customHealthCheckConfig:
           failureThreshold: 6
           httpGetUrl: /index.html
@@ -47,9 +50,6 @@ services:
         diskSize: 512 # 单位MB
         instanceConcurrency: 200
         instanceType: c1 # 函数实例类型，可选值为：e1（弹性实例）、c1（性能实例）、fc.gpu.tesla.1（GPU实例）、fc.gpu.ampere.1 GPU实例）
-        logConfig:
-          project: 'serverless-log'
-          logstore: 'default'
       triggers:
         - name: httpTrigger
           type: http
