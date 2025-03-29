@@ -129,7 +129,8 @@ function captureScreenshot() {
 }
 
 function sendToOCR(base64Image) {
-    const url = 'http://127.0.0.1:1224/api/ocr';
+    const baseUrl = document.location.origin;
+    const url = baseUrl + '/api/ocr';
     const data = {
         base64: base64Image,
         options: {
