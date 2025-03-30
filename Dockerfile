@@ -65,6 +65,8 @@ ENV RESOLUTION_HEIGHT=1080
 # Set up supervisor configuration
 RUN mkdir -p /var/log/supervisor
 COPY supervisord.conf /etc/supervisor/conf.d/supervisord.conf
+COPY web /app/
+COPY proxy.py /app/
 
 EXPOSE 8080 6080
 
